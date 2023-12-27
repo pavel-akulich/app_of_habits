@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "app-of-habits"
+version = "0.1.0"
+description = ""
+authors = ["Pavel Akulich <pavelakulich1999@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app_of_habits"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.7"
+psycopg2-binary = "^2.9.9"
+python-dotenv = "^1.0.0"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.3.1"
+drf-yasg = "^1.21.7"
+celery = "^5.3.6"
+redis = "^5.0.1"
+pillow = "^10.1.0"
+django-cors-headers = "^4.3.1"
+django-celery-beat = "^2.5.0"
+requests = "^2.31.0"
+coverage = "^7.3.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
