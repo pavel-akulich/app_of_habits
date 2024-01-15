@@ -91,12 +91,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Settings for localhost
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PASSWORD': os.getenv('DB_PASSWORD')
+#     }
+# }
+
+# Settings for docker
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
-        'HOST': os.getenv('DB_HOST'),
+        'HOST': os.getenv('DB_DOCKER'),
         'PASSWORD': os.getenv('DB_PASSWORD')
     }
 }
@@ -169,9 +181,13 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOW_ALL_ORIGINS = False
 
-# Settings for Celery
-CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
-CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
+# Settings for Celery localhost
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+# Settings for Celery docker
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL_DOCKER')
+CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND_DOCKER')
 
 CELERY_BEAT_SCHEDULE = {
     'send-notification': {

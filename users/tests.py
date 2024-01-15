@@ -1,5 +1,5 @@
 from rest_framework import status
-from rest_framework.test import APITestCase
+from rest_framework.test import APITestCase, APIClient
 
 from users.models import User
 
@@ -32,6 +32,9 @@ class UserTestCase(APITestCase):
             password='password123',
             telegram_id=123456789
         )
+
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
 
     def test_user_create(self):
         """
