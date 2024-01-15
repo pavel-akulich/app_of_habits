@@ -40,7 +40,7 @@ The project consists of the next components:
    - Handles environmental variables with the `python-dotenv` library
 
 ## How to Install and Run the Project
-   - Fork the repository at https://github.com/pavel-akulich/app_of_habits 
+   - `git clone` the repository at https://github.com/pavel-akulich/app_of_habits 
    - Install all dependencies from the `pyproject.toml` file
    - Create a database and apply migrations to the database using the command `python manage.py migrate`
    - Configure the necessary environment variables as specified in the `.env.sample` file 
@@ -50,6 +50,11 @@ The project consists of the next components:
      * `celery -A config beat -l info -S django`
    - Create and configure a Telegram bot for notifications
    - Use a third-party bot such as Get My ID https://t.me/getmyid_bot to obtain the `telegram_id` for notifications
+
+## Run using Docker
+To run the project more easily using `Docker`, after cloning the repository, you can follow these steps:
+   - Using the `docker compose up --build` command, assemble and launch all services
+- After successfully completing the previous step, your application will be available at http://localhost:8000/ or http://127.0.0.1:8000/
 
 ## Notes
    - The project can be further developed and extended for broader use

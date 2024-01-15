@@ -1,8 +1,9 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
-from habits.permissions import IsSuperUser, IsOwner
+from habits.permissions import IsSuperUser
 from users.models import User
+from users.permissions import IsOwner
 from users.serializers.user import UserSerializer
 
 
