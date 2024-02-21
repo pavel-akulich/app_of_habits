@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from habits.permissions import IsSuperUser
 from users.models import User
@@ -28,8 +28,9 @@ class UserViewSet(viewsets.ModelViewSet):
         Returns:
             list: A list of permission classes.
         """
-
-        if self.action == 'list':
+        if self.action == 'create':
+            permission_classes = [AllowAny]
+        elif self.action == 'list':
             permission_classes = [IsAuthenticated]
         elif self.action == 'update' or self.action == 'partial_update':
             permission_classes = [IsSuperUser | IsOwner]
