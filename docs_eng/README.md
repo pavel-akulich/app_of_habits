@@ -1,6 +1,5 @@
 # Project: Atomic Habits App
 
-[Russian](../README.md) | **English**
 
 ## Project Description
 
